@@ -1,6 +1,3 @@
-# socketDemo
-TCP和UDP编程Demo
-
 Socket,又称为套接字，Socket是计算机网络通信的基本的技术之一。如今大多数基于网络的软件，如浏览器，即时通讯工具甚至是P2P下载都是基于Socket实现的。本文会介绍一下基于TCP/IP的Socket编程，并且如何写一个客户端/服务器程序。
 
 餐前甜点
