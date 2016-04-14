@@ -1,6 +1,7 @@
 package com.qijiabin.tcp;
 
 import java.io.BufferedInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
@@ -21,6 +22,9 @@ public class TcpClient {
 		Socket client = new Socket("192.168.1.87", 8888);  
 		  
 		// 2. 根据socket实例获取InputStream, OutputStream进行数据读写。  
+        DataOutputStream out = new DataOutputStream(client.getOutputStream());
+        out.writeUTF("Hello from " + client.getLocalSocketAddress());
+		
 		BufferedInputStream bis = new BufferedInputStream(client.getInputStream());
 		byte buf[] = new byte[1024];
 		int ret ;

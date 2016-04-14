@@ -1,6 +1,7 @@
 package com.qijiabin.tcp;
 
 import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -26,10 +27,14 @@ public class TcpServer {
 		while (true) {
 			// 2. 调用accept方法，建立和客户端的连接
 			Socket s = ss.accept();
+			System.out.println("Just connected to "+ s.getInetAddress().getHostAddress()+":"+s.getPort());
 			
 			// 3. 获取连接的InputStream,OutputStream来进行数据读写
+			DataInputStream in = new DataInputStream(s.getInputStream());
+	        System.out.println(in.readUTF());
+			
 			BufferedOutputStream bos=new BufferedOutputStream(s.getOutputStream());
-			bos.write(("client connection info is "+s.getInetAddress().getHostAddress()+":"+s.getPort()).getBytes());
+			bos.write(("Thank you for connecting,Goodbye!").getBytes());
 			bos.flush();
 			bos.close();
 			
